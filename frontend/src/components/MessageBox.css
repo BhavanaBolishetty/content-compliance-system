@@ -1,0 +1,80 @@
+body {
+  background: #f4f6f8;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.textarea {
+  width: 100%;
+  min-height: 180px;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+}
+
+button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.warning-box {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 6px;
+  background: #fff3cd;
+  border: 1px solid #ffeeba;
+}
+
+.warning {
+  color: #856404;
+  font-weight: 500;
+}
+
+.approval-box textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.status {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.status.pending {
+  color: #f9a825;   
+}
+
+.status.approved {
+  color: #2e7d32;   
+}
+
+.status.rejected {
+  color: #c62828;   
+}
+

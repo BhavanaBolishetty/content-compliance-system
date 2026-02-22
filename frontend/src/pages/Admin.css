@@ -1,0 +1,315 @@
+.admin-container {
+  min-height: 100vh;
+  background: #f3f4f6;
+  font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+  height: 60px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.hamburger {
+  font-size: 22px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+/* PROFILE */
+.profile-section {
+  position: relative;
+}
+
+.profile-circle {
+  width: 38px;
+  height: 38px;
+  background: #2563eb;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.profile-dropdown {
+  position: absolute;
+  right: 0;
+  top: 45px;
+  background: rgb(15, 10, 10);
+  width: 200px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.profile-dropdown p {
+  cursor: pointer;
+  padding: 6px 0;
+}
+
+.profile-dropdown p:hover {
+  background: #031431;
+}
+
+.logout {
+  color: red;
+}
+
+/* LAYOUT */
+.main-area {
+  display: flex;
+}
+
+.sidebar {
+  width: 220px;
+  background: #111827;
+  color: white;
+  padding: 20px;
+}
+
+.sidebar p {
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+.sidebar p:hover {
+  color: #60a5fa;
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 30px;
+}
+
+/* SEARCH */
+.search-box {
+  padding: 10px 15px;
+  width: 300px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.search-box:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 5px rgba(37,99,235,0.4);
+}
+
+/* CARDS */
+.card {
+  background: white;
+  padding: 18px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* BUTTONS */
+.edit-btn {
+  background: #f59e0b;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-right: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.primary-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.primary-btn:hover {
+  background: #1d4ed8;
+}
+
+/* APPROVALS */
+.approval-card {
+  background: white;
+  padding: 18px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.approve-btn {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.approve-btn:hover {
+  background-color: #1b5e20;
+}
+
+.reject-btn {
+  background-color: #c62828;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.reject-btn:hover {
+  background-color: #8e0000;
+}
+
+/* INPUT */
+.input-field {
+  display: block;
+  margin-bottom: 12px;
+  padding: 10px;
+  width: 300px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* ================= MODERN COLORS ================= */
+
+.navbar {
+  background: linear-gradient(90deg, #2563eb, #1e40af);
+  color: white;
+}
+
+.navbar h3 {
+  color: white;
+}
+
+/* Sidebar animation */
+.sidebar {
+  transition: 0.3s;
+}
+
+.sidebar p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  transition: 0.25s;
+}
+
+.sidebar p:hover {
+  background: #1f2937;
+  transform: translateX(5px);
+}
+
+/* Cards premium */
+.card,
+.approval-card {
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  transition: 0.25s;
+}
+
+.card:hover,
+.approval-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* STATUS PILL */
+.status-pill {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+.status-approved { background: #16a34a; }
+.status-rejected { background: #dc2626; }
+.status-pending { background: #f59e0b; }
+
+/* Approval card spacing */
+.approval-card p {
+  margin: 6px 0;
+}
+
+/* BUTTON animation */
+button {
+  transition: 0.2s;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    z-index: 100;
+    height: calc(100vh - 60px);
+  }
+
+  .content {
+    padding: 15px;
+  }
+
+  .search-box,
+  .input-field {
+    width: 100%;
+  }
+
+  .card {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* Profile circle glow */
+.profile-circle:hover {
+  box-shadow: 0 0 10px rgba(37,99,235,0.6);
+}
+
