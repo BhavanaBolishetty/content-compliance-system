@@ -6,7 +6,6 @@ const RestrictedWord = require("./models/RestrictedWord");
 const ApprovalRequest = require("./models/ApprovalRequest");
 const auth = require("./middleware/auth");
 const bcrypt = require("bcryptjs");
-const Company = require("./models/Company");
 const User = require("./models/User");
 const app = express();
 

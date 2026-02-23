@@ -1,10 +1,9 @@
 import axios from "../api";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import "./Auth.css";
 
-export default function AdminLogin({ onLogin }) {
+export default function AdminLogin() {
   
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -14,8 +13,8 @@ export default function AdminLogin({ onLogin }) {
     try {
       const res = await axios.post("/api/auth/login", { email, password });
       localStorage.setItem("token", res.data.token);
-      onLogin(true);
-      navigate("/admin");
+      
+      window.location.href ="/admin";
     } catch {
       alert("Login failed");
     }
@@ -24,7 +23,7 @@ export default function AdminLogin({ onLogin }) {
   useEffect(() => {
   const token = localStorage.getItem("token");
   if (token) navigate("/admin");
-}, []);
+ }, [navigate]);
 
   return (
     <div className="auth-root">

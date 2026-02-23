@@ -80,3 +80,19 @@
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
+
+.auth-switch {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.auth-switch span {
+  color: #6366f1;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.auth-switch span:hover {
+  text-decoration: underline;
+}

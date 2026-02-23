@@ -57,6 +57,13 @@ export default function CompanyRegister() {
         />
 
         <button className="auth-btn">Register</button>
+  
+        <p className="auth-switch">
+          Already have an account?{" "}
+          <span onClick={() => navigate("/admin/login")}>
+            Login
+          </span>
+        </p>
       </form>
     </div>
   );

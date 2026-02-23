@@ -1,12 +1,18 @@
 
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Menu, Shield, User} from "lucide-react";
+import { Ban, PlusCircle, CheckCircle } from "lucide-react";
+import { Pencil, Trash2 } from "lucide-react";
+import { MessageSquare, AlertCircle, Info, BadgeCheck } from "lucide-react";
+import { Mail, Lock, Send } from "lucide-react";
+import { Building2, Hash, LogOut } from "lucide-react";
 import axios from "../api";
 import AdminLogin from "./AdminLogin";
 import "./Admin.css";
 import "./Auth.css";
 export default function Admin() {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -14,7 +20,8 @@ export default function Admin() {
     if (!token) {
       navigate("/admin/login");
     }
-  }, []);
+  }, [navigate]);
+  
   const [requests, setRequests] = useState([]);
   const [words, setWords] = useState([]);
   const [newWord, setNewWord] = useState("");
@@ -128,10 +135,12 @@ export default function Admin() {
           className="hamburger"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          ☰
+          <Menu size={28} />
         </div>
 
-        <h3>Admin Panel</h3>
+        <h3 className="nav-title">
+          <Shield size={22} />Admin Panel
+        </h3>
       </div>
       
       {/* PROFILE */}
@@ -142,20 +151,21 @@ export default function Admin() {
           onClick={() => setProfileOpen(!profileOpen)}
         >
           {companyName?.charAt(0)}
+          
         </div>
 
         {profileOpen && (
           <div className="profile-dropdown">
 
-            <p><b>{companyName}</b></p>
+            <p><Building2 size={18}/><b>{companyName}</b></p>
             <hr />
 
             <p onClick={() => { setActiveTab("profile"); setProfileOpen(false); }}>
-              Profile
+            <User size={18}/> Profile
             </p>
 
             <p onClick={() => { setActiveTab("invite"); setProfileOpen(false); }}>
-              Invite Employee
+            <Send size={18}/> Invite Employee
             </p>
 
             <p
@@ -164,8 +174,7 @@ export default function Admin() {
                 localStorage.removeItem("token");
                 setLoggedIn(false);
               }}
-            >
-              Logout
+            ><LogOut size={18}/> Logout
             </p>
 
           </div>
@@ -181,15 +190,15 @@ export default function Admin() {
         <div className="sidebar">
 
           <p onClick={() => { setActiveTab("words"); setMenuOpen(false); }}>
-            Restricted Words
+            <Ban size={26}/> Restricted Words
           </p>
 
           <p onClick={() => { setActiveTab("add"); setMenuOpen(false); }}>
-            Add Word
+            <PlusCircle size={26} /> Add Word
           </p>
 
           <p onClick={() => { setActiveTab("approvals"); setMenuOpen(false); }}>
-            Approvals
+            <CheckCircle size={26} /> Approvals
           </p>
 
         </div>
@@ -218,8 +227,9 @@ export default function Admin() {
                   <span>{w.word}</span>
 
                   <div className="action-buttons">
-                    <button onClick={() => handleEdit(w._id, w.word)}>Edit</button>
-                    <button onClick={() => handleDelete(w._id)}>Delete</button>
+                    <button onClick={() => handleEdit(w._id, w.word)}><Pencil size={16} /> </button>
+
+                    <button onClick={() => handleDelete(w._id)}><Trash2 size={16}/> </button>
                   </div>
 
                 </div>
@@ -238,14 +248,21 @@ export default function Admin() {
               onChange={(e) => setNewWord(e.target.value)}
             />
 
-            <button
+            <button disabled={!newWord.trim()}
               onClick={async () => {
+                try{
                 await axios.post(
-                  "/api/restricted-words",
-                  { word: newWord } );
+                  "/api/restricted-words", {word: newWord.trim()});
                   alert("Word Added")
-                setNewWord("");
-                fetchWords();
+                  setNewWord("");
+                  fetchWords();
+                }catch(err){
+                if (err.response?.status === 409) {
+                  alert("Word already exists");
+                } else {
+                  alert("Error adding word");
+                }}
+
               }}
             >
               Add
@@ -264,12 +281,12 @@ export default function Admin() {
             {requests.map((r) => (
               <div key={r._id} className="approval-card">
 
-                <p><strong>Employee Email:</strong> {r.employeeId?.email}</p>
-                <p><strong>Message:</strong> {r.message}</p>
-                <p><strong>Restricted Word:</strong> {r.detectedWord}</p>
-                <p><strong>Reason:</strong> {r.reason}</p>
+                <p><User size={16}/> <strong>Employee Email:</strong> {r.employeeId?.email}</p>
+                <p><MessageSquare size={16}/><strong>Message:</strong> {r.message}</p>
+                <p><AlertCircle size={16}/><strong>Restricted Word:</strong> {r.detectedWord}</p>
+                <p><Info size={16}/><strong>Reason:</strong> {r.reason}</p>
 
-                <p>
+                <p><BadgeCheck size={16}/>
                   <strong>Status:</strong>{" "}
                   <span className={`status-pill status-${r.status}`}>
                     {r.status}
@@ -303,10 +320,12 @@ export default function Admin() {
 
         {/* PROFILE */}
         {activeTab === "profile" && (
-          <>
-            <h2>Profile</h2>
-            <p>Company: {companyName}</p>
-             <p>Email: {email}</p>
+          <><h2><User size={28}/>
+            Profile</h2>
+            <p><Building2 size={18}/>
+           <b> Company: </b>{companyName}</p>
+            <p><Mail size={18}/>
+           <b> Email:</b> {email}</p>
           </>
         )}
 
@@ -314,7 +333,7 @@ export default function Admin() {
         {activeTab === "invite" && (
           <>
             <h2>Invite Employee</h2>
-
+           < User size={18} />
             <input
               className="input-field"
               placeholder="Name"
@@ -322,6 +341,7 @@ export default function Admin() {
               onChange={(e) => setEmpForm({ ...empForm, name: e.target.value })}
             />
 
+            <Mail size={18}/>
             <input
               className="input-field"
               placeholder="Email"
@@ -329,7 +349,8 @@ export default function Admin() {
               onChange={(e) => setEmpForm({ ...empForm, email: e.target.value })}
             />
 
-            <input
+            <Lock size={18}/>
+            <input 
               className="input-field"
               type="password"
               placeholder="Password"
@@ -343,7 +364,7 @@ export default function Admin() {
                 alert("Invited");
               }}
             >
-              Invite
+              <Send size={18}/> Invite
             </button>
           </>
         )}

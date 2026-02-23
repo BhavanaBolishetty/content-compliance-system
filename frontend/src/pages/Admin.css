@@ -22,6 +22,12 @@
   align-items: center;
 }
 
+.nav-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .hamburger {
   font-size: 22px;
   margin-right: 15px;
@@ -85,6 +91,9 @@
 .sidebar p {
   cursor: pointer;
   padding: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .sidebar p:hover {
@@ -211,11 +220,11 @@
   margin-bottom: 12px;
   padding: 10px;
   width: 300px;
-  border-radius: 6px;
+  border-radius: 8px;
   border: 1px solid #ccc;
+  gap: 10px;
 }
 
-/* ================= MODERN COLORS ================= */
 
 .navbar {
   background: linear-gradient(90deg, #2563eb, #1e40af);
@@ -312,4 +321,6 @@ button:active {
 .profile-circle:hover {
   box-shadow: 0 0 10px rgba(37,99,235,0.6);
 }
+
+
 
