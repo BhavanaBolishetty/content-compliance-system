@@ -1,202 +1,152 @@
-***Content Compliance System***
+# 🚀 Content Compliance System
 
-A multi-tenant enterprise content governance platform that enables organizations to monitor restricted vocabulary in employee communications and enforce approval workflows.
+PROBLEM: Organizations struggle to control policy violations in internal communication systems.
 
-The system allows companies to define policy-restricted words, automatically detect violations in messages, and manage approval requests through an administrative dashboard.
+This platform provides automated restricted word detection with an approval workflow to ensure compliant communication across teams. 
 
-**📜Features**
+---
 
-🏢 Multi-Tenant Organization Support
+## ✨ Features
 
-Company-level data isolation
+### 🏢 Company Admin
+- Company registration & authentication
+- Restricted word management (Add / Edit / Delete)
+- Approval workflow dashboard
+- Invite employees
+- Company profile view
+- Real-time approval refresh
 
-Independent restricted word lists
+### 👨‍💻 Employee
+- Employee login
+- Message submission
+- Automatic restricted word detection
+- Approval request creation
 
-Secure tenant-based authorization
+### 🔐 System
+- JWT authentication
+- Multi-company isolation
+- Role-based access
+- Secure API architecture
 
-👩‍💼 Admin Capabilities
+---
 
-Manage restricted vocabulary (Add / Edit / Delete)
+## 🧱 Tech Stack
 
-Invite employees to organization
+### Frontend
+- React.js
+- React Router
+- Axios
+- Lucide Icons
+- Custom CSS
 
-Review approval requests
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- JWT Authentication
 
-Approve or reject flagged messages
+---
 
-👨‍💻 Employee Capabilities
+## 📁 Project Structure
+```
 
-Real-time message compliance validation
-
-Approval request submission
-
-Policy violation feedback
-
-🔐 Security
-
-JWT authentication
-
-Role-based access control
-
-Tenant-scoped data queries
-
-
-**🧩Architecture Overview**
-Backend
-
-Node.js + Express REST API
-
-MongoDB document storage
-
-JWT middleware security layer
-
-Modular route architecture
-
-Frontend
-
-React SPA
-
-Axios API abstraction
-
-Role-based routing
-
-`
-
-**📁Project Structure**
 content-compliance-system/
-
 │
-
 ├── backend/
-
-│   ├── middleware/        # Auth middleware
-
-│   ├── models/            # MongoDB schemas
-
-│   ├── routes/            # API endpoints
-
-│   ├── server.js          # Express entry
-
-│   └── .env               # Environment variables
-
+│ ├── middleware/
+│ ├── models/
+│ ├── routes/
+│ ├── server.js
+│ └── .env
 │
-
 ├── frontend/
-
-│   ├── public/
-
-│   └── src/
-
-│       ├── components/    # Reusable UI
-
-│       ├── pages/         # Screens
-
-│       ├── api.js         # Axios instance
-
-│       ├── App.js
-
-│       └── index.js
-
+│ ├── public/
+│ ├── src/
+│ │ ├── pages/
+│ │ ├── components/
+│ │ ├── App.js
+│ │ ├── api.js
+│ │ └── index.js
 │
-
 └── README.md
 
-`
-
-**⏩Prerequisites**
-
-Node.js (v16+)
-
-npm
-
-MongoDB (local or cloud)
-
-Git
+```
+---
+## ⚙️ Installation
 
 **⚙️ Backend Setup**
 
-1️ Navigate to backend
+1️. Navigate to backend
+```
 cd backend
-
-2️ Install dependencies
+```
+2️. Install dependencies
+```
 npm install
-
-3️ Configure environment
-Create .env:
+```
+3️. Create .env:
+```
 MONGO_URI=mongodb://127.0.0.1:27017/restricted_words_db
+
 JWT_SECRET=your_secret_key
+
 PORT=5000
-
-4️ Start backend
+```
+4️. Start backend
+```
 node server.js
-
+```
 Backend runs at:
 http://localhost:5000
 
+
 **🎨 Frontend Setup**
 
-1️ Navigate to frontend
+1️. Navigate to frontend
+```
 cd frontend
-
-2️ Install dependencies
+```
+2️. Install dependencies
+```
 npm install
-
-3️ Start frontend
+```
+3️. Start frontend
+```
 npm start
-
+```
 Frontend runs at:
 http://localhost:3000
 
+---
 
-**🧪 Usage Flow**
+## 🔑 Usage Flow
 
-👑 Admin
 Register company
-Login
+
+Admin logs in
+
 Add restricted words
-Review employee requests
-Approve / reject content
 
-👩‍💻 Employee
-Login
-Submit content
-System detects restricted words
-Send for approval
-Track approval status
+Invite employees
 
-**🔧 Troubleshooting**
-❌ 401 Unauthorized
+Employees send messages
 
-Ensure JWT token exists in localStorage
+System detects violations
 
-Verify backend JWT_SECRET matches
+Admin approves/rejects requests
 
-❌ MongoDB connection error
+---
 
-Check MongoDB service running
+## 🎯 Future Enhancements
 
-Verify MONGO_URI
+Compliance analytics dashboard with violation insights
 
-❌ CORS / API errors
+Email and in-app notification system
 
-Ensure backend running
+Secure password reset and account recovery
 
-Verify axios baseURL
-
-❌ UI role mismatch
-
-Clear localStorage
-
-Re-login
+Browser extension for real-time restricted word detection
 
 
-**🔮Future Enhancements**
 
-Email notification workflow
-
-AI-powered semantic compliance detection
-
-Analytics dashboard
-
-Deployment automation
 
