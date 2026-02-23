@@ -1,10 +1,10 @@
-Content Compliance System
+***Content Compliance System***
 
 A multi-tenant enterprise content governance platform that enables organizations to monitor restricted vocabulary in employee communications and enforce approval workflows.
 
 The system allows companies to define policy-restricted words, automatically detect violations in messages, and manage approval requests through an administrative dashboard.
 
-📜Features
+**📜Features**
 
 🏢 Multi-Tenant Organization Support
 
@@ -41,7 +41,7 @@ Role-based access control
 Tenant-scoped data queries
 
 
-🧩Architecture Overview
+**🧩Architecture Overview**
 Backend
 
 Node.js + Express REST API
@@ -62,30 +62,48 @@ Role-based routing
 
 `
 
-📁Project Structure
+**📁Project Structure**
 content-compliance-system/
+
 │
+
 ├── backend/
+
 │   ├── middleware/        # Auth middleware
+
 │   ├── models/            # MongoDB schemas
+
 │   ├── routes/            # API endpoints
+
 │   ├── server.js          # Express entry
+
 │   └── .env               # Environment variables
+
 │
+
 ├── frontend/
+
 │   ├── public/
+
 │   └── src/
+
 │       ├── components/    # Reusable UI
+
 │       ├── pages/         # Screens
+
 │       ├── api.js         # Axios instance
+
 │       ├── App.js
+
 │       └── index.js
+
 │
+
 └── README.md
 
 `
 
-⏩Prerequisites
+**⏩Prerequisites**
 
 Node.js (v16+)
 
@@ -95,7 +113,8 @@ MongoDB (local or cloud)
 
 Git
 
-⚙️ Backend Setup
+**⚙️ Backend Setup**
+
 1️ Navigate to backend
 cd backend
 
@@ -114,7 +133,8 @@ node server.js
 Backend runs at:
 http://localhost:5000
 
-🎨 Frontend Setup
+**🎨 Frontend Setup**
+
 1️ Navigate to frontend
 cd frontend
 
@@ -128,7 +148,7 @@ Frontend runs at:
 http://localhost:3000
 
 
-🧪 Usage Flow
+**🧪 Usage Flow**
 
 👑 Admin
 Register company
@@ -144,7 +164,7 @@ System detects restricted words
 Send for approval
 Track approval status
 
-🔧 Troubleshooting
+**🔧 Troubleshooting**
 ❌ 401 Unauthorized
 
 Ensure JWT token exists in localStorage
@@ -170,7 +190,7 @@ Clear localStorage
 Re-login
 
 
-🔮Future Enhancements
+**🔮Future Enhancements**
 
 Email notification workflow
 
